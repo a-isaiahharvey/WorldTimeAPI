@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug Example1",
+            "program": "${workspaceFolder:WorldTimeAPI}/.build/debug/Example1",
+            "args": [],
+            "cwd": "${workspaceFolder:WorldTimeAPI}",
+            "preLaunchTask": "swift: Build Debug Example1"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release Example1",
+            "program": "${workspaceFolder:WorldTimeAPI}/.build/release/Example1",
+            "args": [],
+            "cwd": "${workspaceFolder:WorldTimeAPI}",
+            "preLaunchTask": "swift: Build Release Example1"
+        }
+    ]
+}
