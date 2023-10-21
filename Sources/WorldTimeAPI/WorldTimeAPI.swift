@@ -1,19 +1,30 @@
 import Foundation
 
+/// This enum defines the possible errors that can occur when using the WorldTimeAPI
 public enum WorldTimeAPIError: Error {
+  /// This case indicates that the payload contains an invalid key
   case InvalidKey(String)
+  /// This case indicates that the payload is missing a required key
   case MissingKey(String)
 }
 
+/// This struct represents a client that can communicate with the WorldTimeAPI
 public struct Client {
+  /// This property stores the list of regions or ip information returned by the api
   public let regions: [Any]
+  /// This property stores the base url of the api
   public let url: String
 
+  /// This enum defines the possible endpoints of the api
   public enum Endpoint {
+    /// This case represents the timezone endpoint
     case timezone
+    /// This case represents the ip endpoint
     case ip
   }
 
+  /// This initializer creates a client with a given endpoint and fetches the 
+  /// regions or ip information from the api asynchronously
   public init(endpoint: Endpoint) async throws {
     var regions: [Any]
 
@@ -35,6 +46,8 @@ public struct Client {
     self.url = "https://worldtimeapi.org/api/\(endpoint)"
   }
 
+  /// This function takes a payload dictionary and returns a DateTimeJson 
+  /// object asynchronously
   public func get(payload: [String: String]) async throws -> DateTimeJson {
     let keys = payload.keys
     var args = String()
